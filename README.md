@@ -1,14 +1,15 @@
 # AgileProject
 
-## Smead Inc. LLC Enterprises
+## Smead Inc.
 
 ## Group Members:  
-Sammy Steffensen Benomar s174449  
-Morten Bjerre s174397  
-Eric Jensen s174379  
-Alexander Christensen s174355  
-Daniel Ajsen s171206  
+Sammy Steffensen Benomar, s174449  
+Morten Bjerre, s174397  
+Eric Jensen, s174379  
+Alexander Christensen, s174355  
+Daniel Ajsen, s171206  
 
+02160 – Agile Object-Oriented Software Development
 
 Project Plan Assigment 4: 
 https://docs.google.com/document/d/1HKsClbxWbwD5Q_PsPZHsCW3SAutd4hc3IZNyogGHvbQ/edit?fbclid=IwAR2KrqQ3JNMOWM-RCEVUcLNhOQtuvpKRRxG-10FMoa6p4JDjkjFwSf4UqaY
