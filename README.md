@@ -13,7 +13,7 @@ Daniel Ajsen s171206
 Project Plan Assigment 4: 
 https://docs.google.com/document/d/1HKsClbxWbwD5Q_PsPZHsCW3SAutd4hc3IZNyogGHvbQ/edit?fbclid=IwAR2KrqQ3JNMOWM-RCEVUcLNhOQtuvpKRRxG-10FMoa6p4JDjkjFwSf4UqaY
 
-User stories: 
+User stories:  
 https://docs.google.com/document/d/1xbwCP8Ei56HwFXhvoyQsDpsrZdEi5IJw5WgSmyO1i4o/edit?fbclid=IwAR0Q84r7Tz97ExXarPrOc4P-3NMXrM12jJyVsfL2F64LnFByEeBI5sUTKSM
 
 UML plan:  
