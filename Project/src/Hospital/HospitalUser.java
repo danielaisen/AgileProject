@@ -11,6 +11,7 @@ public abstract class HospitalUser {
 	private String gender;
 //	private Department department;
 	
+	//hi
 	public void set(int serialnum, String email, String name, String surname, Date birthday, String gender) {
 		setSerialnum(serialnum);
 		setEmail(email);
