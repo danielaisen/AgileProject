@@ -1,6 +1,6 @@
 # AgileProject
 
-## Smead Inc.
+## Smeadb Inc.
 
 ## Group Members:  
 Sammy Steffensen Benomar, s174449  
