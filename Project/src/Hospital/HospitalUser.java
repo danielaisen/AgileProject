@@ -11,6 +11,15 @@ public abstract class HospitalUser {
 	private String gender;
 //	private Department department;
 	
+	/**
+	 * This sets all the fields of the hospitaluser
+	 * @param serialnum Serial number
+	 * @param email Email address
+	 * @param name First name
+	 * @param surname Last name
+	 * @param birthday Birthday
+	 * @param gender Gender
+	 */
 	public void set(int serialnum, String email, String name, String surname, Date birthday, String gender) {
 		setSerialnum(serialnum);
 		setEmail(email);
