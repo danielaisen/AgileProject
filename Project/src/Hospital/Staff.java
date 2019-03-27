@@ -6,7 +6,7 @@ public class Staff extends HospitalUser {
 	private String role;
 	
 	
-	public void setStaff(int serialnum, String email, String name, String surname, Date birthday, String gender, String role) {
+	public void Staff(int serialnum, String email, String name, String surname, Date birthday, String gender, String role) {
 		set(serialnum, email, name, surname, birthday, gender);
 		setRole(role);
 		//need to add department
@@ -20,7 +20,7 @@ public class Staff extends HospitalUser {
 		this.role = roleName;
 	}
 	public String toString() {
-		return ("Staff Member: " + getSerialnum() + " ; Name: " + getName() + " " + getSurname() + " ; Gender: " + getGender()); 
+		return ("Staff Member: " + getSerialnum() + " ; Name: " + getName() + " " + getSurname() + " ; Gender: " + getGender() + " ; Role: " + role); 
 	}
 
 }
