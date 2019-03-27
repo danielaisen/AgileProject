@@ -4,8 +4,9 @@ import java.util.Date;
 
 public class Staff extends HospitalUser {
 	private String role;
-
+  
 	public Staff(int serialnum, String email, String name, String surname, Date birthday, String gender, String role) {
+
 		set(serialnum, email, name, surname, birthday, gender);
 		setRole(role);
 		//need to add department
@@ -19,7 +20,9 @@ public class Staff extends HospitalUser {
 		this.role = roleName;
 	}
 	public String toString() {
-		return ("Staff Member: " + getSerialnum() + " ; Name: " + getName() + " " + getSurname() + " ; Gender: " + getGender()+" ; Role: "+role); 
+
+		return ("Staff Member: " + getSerialnum() + " ; Name: " + getName() + " " + getSurname() + " ; Gender: " + getGender() + " ; Role: " + role); 
+
 	}
 
 }
