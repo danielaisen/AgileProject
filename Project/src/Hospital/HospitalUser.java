@@ -10,6 +10,15 @@ public abstract class HospitalUser {
 	private Date birthday;
 	private String gender;
 	
+	public void set(int serialnum, String email, String name, String surname, Date birthday, String gender) {
+		setSerialnum(serialnum);
+		setEmail(email);
+		setName(name);
+		setSurname(surname);
+		setBirthday(birthday);
+		setGender(gender);
+	}
+	
 	public int getSerialnum() { return serialnum; }
 	
 	public void setSerialnum(int serialnum) { this.serialnum = serialnum; }
@@ -23,7 +32,6 @@ public abstract class HospitalUser {
 	public void setName(String name) { this.name = name; }
 
 	public Date getBirthday() { return birthday; }
-	
 
 	public void setBirthday(Date birthday) { this.birthday = birthday; }
 	
