@@ -20,28 +20,52 @@ public abstract class HospitalUser {
 		setGender(gender);
 	}
 	
-	public int getSerialnum() { return serialnum; }
+	public int getSerialnum() { 
+		return serialnum; 
+		}
 	
-	public void setSerialnum(int serialnum) { this.serialnum = serialnum; }
+	public void setSerialnum(int serialnum) { 
+		this.serialnum = serialnum; 
+		}
 	
-	public String getEmail() { return email; }
+	public String getEmail() { 
+		return email; 
+		}
 	
-	public void setEmail(String email) { this.email = email; }
+	public void setEmail(String email) { 
+		this.email = email; 
+		}
 	
-	public String getName() { return name; }
+	public String getName() { 
+		return name; 
+		}
 	
-	public void setName(String name) { this.name = name; }
+	public void setName(String name) { 
+		this.name = name; 
+		}
 
-	public Date getBirthday() { return birthday; }
+	public Date getBirthday() { 
+		return birthday; 
+		}
 
-	public void setBirthday(Date birthday) { this.birthday = birthday; }
+	public void setBirthday(Date birthday) { 
+		this.birthday = birthday; 
+		}
 	
-	public String getGender() { return gender; }
+	public String getGender() { 
+		return gender; 
+		}
 
-	public void setGender(String gender) { this.gender = gender; }
+	public void setGender(String gender) { 
+		this.gender = gender; 
+		}
 
-	public String getSurname() { return surname; }
+	public String getSurname() { 
+		return surname; 
+		}
 	
-	public void setSurname(String surname) { this.surname = surname; }
+	public void setSurname(String surname) { 
+		this.surname = surname; 
+		}
 }
 

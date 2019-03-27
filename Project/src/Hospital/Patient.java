@@ -23,6 +23,7 @@ public class Patient extends HospitalUser {
 		setAddress(address);
 		setPhoneNumber(number);
 		setAlive(alive);
+		//need to add department
 	}
 
 	private void setAlive(boolean alive) {

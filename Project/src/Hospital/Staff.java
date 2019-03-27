@@ -3,14 +3,14 @@ package Hospital;
 import java.util.Date;
 
 public class Staff extends HospitalUser {
+	private String role;
+	
 	
 	public void setStaff(int serialnum, String email, String name, String surname, Date birthday, String gender, String role) {
 		set(serialnum, email, name, surname, birthday, gender);
 		setRole(role);
+		//need to add department
 	}
-	
-	private String role;
-//	private Departmnet department;
 	
 	public String getRole() {
 		return role;
