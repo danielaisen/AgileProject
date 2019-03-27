@@ -15,5 +15,4 @@ public class Staff extends HospitalUser {
 		this.role = roleName;
 	}
 
-	
 }
