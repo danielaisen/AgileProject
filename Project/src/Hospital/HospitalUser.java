@@ -25,7 +25,7 @@ public abstract class HospitalUser {
 	public Date getBirthday() { return birthday; }
 
 	public void setBirthday(Date birthday) { this.birthday = birthday; }
-
+	
 	public String getGender() { return gender; }
 
 	public void setGender(String gender) { this.gender = gender; }
