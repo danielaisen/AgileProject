@@ -26,27 +26,27 @@ public class Patient extends HospitalUser {
 		//need to add department
 	}
 
-	private void setAlive(boolean alive) {
+	public void setAlive(boolean alive) {
 		this.alive = alive;
 	}
 
-	private void setPhoneNumber(int number) {
+	public void setPhoneNumber(int number) {
 		this.phoneNumber = number;
 	}
 
-	private void setAddress(String address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
-	private String getAddress() {
+	public String getAddress() {
 		return address;
 	}
 
-	private boolean getAlive() {
+	public boolean getAlive() {
 		return alive;
 	}
 	
-	private int getPhoneNumber() {
+	public int getPhoneNumber() {
 		return phoneNumber;
 	}
 	
