@@ -9,6 +9,7 @@ public abstract class HospitalUser {
 	private String surname;
 	private Date birthday;
 	private String gender;
+//	private Department department;
 	
 	public void set(int serialnum, String email, String name, String surname, Date birthday, String gender) {
 		setSerialnum(serialnum);
