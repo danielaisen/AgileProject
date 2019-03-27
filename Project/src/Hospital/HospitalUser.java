@@ -37,7 +37,7 @@ public abstract class HospitalUser {
 		this.email = email; 
 	}
 
-	
+	//sammys
 	public String getName() { 
 		return name; 
 	}
