@@ -37,7 +37,6 @@ public abstract class HospitalUser {
 		this.email = email; 
 	}
 
-	
 	public String getName() { 
 		return name; 
 	}
@@ -70,8 +69,5 @@ public abstract class HospitalUser {
 		this.surname = surname; 
 	}
 	
-	public String toString() {
-		return ("Patient: " + serialnum + " ; name: " + name + " " + surname + " ; Gender: " + gender); 
-	}
 }
 

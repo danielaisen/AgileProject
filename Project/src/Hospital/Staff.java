@@ -19,5 +19,8 @@ public class Staff extends HospitalUser {
 	public void setRole(String roleName) {
 		this.role = roleName;
 	}
+	public String toString() {
+		return ("Staff Member: " + getSerialnum() + " ; Name: " + getName() + " " + getSurname() + " ; Gender: " + getGender()); 
+	}
 
 }

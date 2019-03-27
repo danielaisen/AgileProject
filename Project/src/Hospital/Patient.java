@@ -50,6 +50,9 @@ public class Patient extends HospitalUser {
 		return phoneNumber;
 	}
 	
+	public String toString() {
+		return ("Patient: " + getSerialnum() + " ; Name: " + getName() + " " + getSurname() + " ; Gender: " + getGender()); 
+	}
 }
 
 
