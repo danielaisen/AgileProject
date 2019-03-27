@@ -75,7 +75,7 @@ public class Department {
 	}
 	
 	public void deleteStaff(Staff employee) {
-		patients.remove(employee);
+		staff.remove(employee);
 	}
 	
 //	public int hashCode() { 
