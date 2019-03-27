@@ -8,6 +8,7 @@ Morten Bjerre, s174397
 Eric Jensen, s174379  
 Alexander Christensen, s174355  
 Daniel Ajsen, s171206  
+Benjamin Jepsen, s184374
 
 02160 – Agile Object-Oriented Software Development
 
