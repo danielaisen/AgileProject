@@ -69,5 +69,9 @@ public abstract class HospitalUser {
 	public void setSurname(String surname) { 
 		this.surname = surname; 
 	}
+	
+	public String toString() {
+		return ("Patient: " + serialnum + " ; name: " + name + " " + surname + " ; Gender: " + gender); 
+	}
 }
 
