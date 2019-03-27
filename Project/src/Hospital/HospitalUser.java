@@ -19,12 +19,10 @@ public abstract class HospitalUser {
 		setBirthday(birthday);
 		setGender(gender);
 	}
-<<<<<<< HEAD
+
 	
 	public int getSerialnum() { return serialnum; }
-=======
->>>>>>> branch 'master' of https://github.com/danielaisen/AgileProject
-	
+
 	public int getSerialnum() { 
 		return serialnum; 
 		}
@@ -33,17 +31,15 @@ public abstract class HospitalUser {
 		this.serialnum = serialnum; 
 		}
 	
-<<<<<<< HEAD
 	public void setEmail(String email) { this.email = email; }
 	
 	public String getName() { return name; }
-=======
+
+	
 	public String getEmail() { 
 		return email; 
 		}
->>>>>>> branch 'master' of https://github.com/danielaisen/AgileProject
 	
-<<<<<<< HEAD
 	public void setName(String name) { this.name = name; }
 
 	public Date getBirthday() { return birthday; }
@@ -55,11 +51,11 @@ public abstract class HospitalUser {
 	public void setGender(String gender) { this.gender = gender; }
 
 	public String getSurname() { return surname; }
-=======
+
 	public void setEmail(String email) { 
 		this.email = email; 
 		}
->>>>>>> branch 'master' of https://github.com/danielaisen/AgileProject
+
 	
 	public String getName() { 
 		return name; 
