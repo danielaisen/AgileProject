@@ -12,7 +12,6 @@ public abstract class HospitalUser {
 	
 	public int getSerialnum() { return serialnum; }
 	
-	
 	public String getEmail() { return email; }
 
 	public String getName() {
