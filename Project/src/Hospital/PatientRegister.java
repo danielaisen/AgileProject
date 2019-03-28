@@ -17,6 +17,33 @@ public class PatientRegister {
 		serialnum++;
 	}
 	
+	public String toString() {
+		String a = "";
+		for (Patient p : patients) {
+			a += p.toString() +"\n";
+		}
+		return a;
+	}
+	
+	private ArrayList<Patient> findSerialnum(int serialnum) {
+		ArrayList<Patient> matches = new ArrayList<Patient>();
+		for (Patient p : patients) {
+			if (p.getSerialnum() == serialnum) {
+				matches.add(p);
+			}
+		}
+		return matches;
+	}
+	
+	public String[] searchSerialnum(int serialnum) {
+		ArrayList<Patient> matches = findSerialnum(serialnum);
+		String[] m = new String[matches.size()];
+		for (int i = 0; i < matches.size(); i++) {
+			m[i] = matches.get(i).toString();
+		}
+		return m;
+	}
+	
 	/**
 	 * Finds all the patients in the register with matching emails
 	 * @param email
@@ -159,5 +186,4 @@ public class PatientRegister {
 		}
 		return matches;
 	}
-		
 }
