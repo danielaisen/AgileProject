@@ -20,7 +20,7 @@ public class Staff extends HospitalUser {
 		this.role = roleName;
 	}
 	public String toString() {
-		return ("Staff Member: " + getSerialnum() + " ; Name: " + getName() + " " + getSurname() + " ; Gender: " + getGender() + " ; Role: " + role); 
+		return ("Staff Member: " + getSerialnum() + " ; Name: " + getName() + " " + getSurname() + " ; Gender: " + getGender() + " ; Birthday: " + getBirthday() + " ; Email: " + getEmail() + " ; Role: " + role); 
 	}
 
 }

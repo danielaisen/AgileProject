@@ -110,10 +110,10 @@ public abstract class Register<T extends HospitalUser> {
 		return m;
 	}
 	
-	private ArrayList<T> findSurname(String gender) {
+	private ArrayList<T> findSurname(String surname) {
 		ArrayList<T> matches = new ArrayList<T>();
 		for (T p : users) {
-			if (p.getGender() == gender) {
+			if (p.getSurname() == surname) {
 				matches.add(p);
 			}
 		}
