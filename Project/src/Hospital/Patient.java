@@ -14,11 +14,30 @@ public class Patient extends HospitalUser {
 	private String address;
 	private int phoneNumber;
 	private boolean alive;
-
-		
+	
+	//This is protected so that there can't be free floating patients. Can only make one in a register
+	/**
+	 * creates a patient
+	 * @param serialnum
+	 * @param email
+	 * @param name
+	 * @param surname
+	 * @param birthday
+	 * @param gender
+	 * @param address
+	 * @param number
+	 * @param alive
+	 */
+	protected Patient(int serialnum, String email, String name, String surname, Date birthday,
+			String gender, String address, int number, boolean alive) {
+		set(serialnum, email, name, surname, birthday, gender);
+		setAddress(address);
+		setPhoneNumber(number);
+		setAlive(alive);
+	}
+	
 	public void setPatient(int serialnum, String email, String name, String surname, Date birthday,
 			String gender, String address, int number, boolean alive) {
-		
 		set(serialnum, email, name, surname, birthday, gender);
 		setAddress(address);
 		setPhoneNumber(number);
