@@ -15,7 +15,7 @@ public class StaffRegister extends Register<Staff> {
 	 * @param gender
 	 * @param role
 	 */
-	public void add(int serialnum, String email, String name, String surname, Date birthday, String gender, String role) {
+	public void add(String email, String name, String surname, Date birthday, String gender, String role) {
 		users.add(new Staff(serialnum, email, name, surname, birthday, gender, role));
 		serialnum++;
 	}
@@ -80,8 +80,8 @@ public class StaffRegister extends Register<Staff> {
 	
 	public static void main(String[] args) {
 		StaffRegister test = new StaffRegister();
-		test.add(serialnum, "alexfc@live.dk", "Alexander", "Christensen", new Date(), "male" ,"Doctor");
-		test.add(serialnum, "ehhh@live.dk", "Alexander", "Christensen", new Date(), "x" ,"Nurse");
+		test.add("alexfc@live.dk", "Alexander", "Christensen", new Date(), "male" ,"Doctor");
+		test.add("ehhh@live.dk", "Alexander", "Christensen", new Date(), "x" ,"Nurse");
 		System.out.println(test);
 	}
 }
