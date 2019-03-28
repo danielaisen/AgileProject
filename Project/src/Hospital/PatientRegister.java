@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class PatientRegister extends Register<Patient> {
+	
 	/**
 	 * Adds a patient to the register
 	 * @param p Patient
@@ -15,7 +16,11 @@ public class PatientRegister extends Register<Patient> {
 	}
 	
 	
-	
+	/**
+	 * Searches for patients with matching address
+	 * @param address
+	 * @return String array of patients
+	 */
 	public String[] searchAddress(String address) {
 		ArrayList<Patient> matches = findAddress(address);
 		String[] m = new String[matches.size()];
@@ -24,7 +29,11 @@ public class PatientRegister extends Register<Patient> {
 		}
 		return m;
 	}
-	
+	/**
+	 * Searches for patients with matching address
+	 * @param address
+	 * @return ArrayList of matching patients
+	 */
 	private ArrayList<Patient> findAddress(String address) {
 		ArrayList<Patient> matches = new ArrayList<Patient>();
 		for (Patient p : users) {
@@ -35,6 +44,11 @@ public class PatientRegister extends Register<Patient> {
 		return matches;
 	}
 	
+	/**
+	 * Searches for patients with matching phone numbers
+	 * @param number
+	 * @return String array of matching patients
+	 */
 	public String[] searchNumber(int number) {
 		ArrayList<Patient> matches = findNumber(number);
 		String[] m = new String[matches.size()];
@@ -44,6 +58,11 @@ public class PatientRegister extends Register<Patient> {
 		return m;
 	}
 	
+	/**
+	 * Searches for patients with matching phone numbers
+	 * @param number
+	 * @return ArrayList of matching patients
+	 */
 	private ArrayList<Patient> findNumber(int number) {
 		ArrayList<Patient> matches = new ArrayList<Patient>();
 		for (Patient p : users) {
@@ -54,6 +73,11 @@ public class PatientRegister extends Register<Patient> {
 		return matches;
 	}
 	
+	/**
+	 * Searches for patients with matching alive status
+	 * @param alive
+	 * @return String array of matching patients
+	 */
 	public String[] searchAlive(boolean alive) {
 		ArrayList<Patient> matches = findAlive(alive);
 		String[] m = new String[matches.size()];
@@ -63,6 +87,11 @@ public class PatientRegister extends Register<Patient> {
 		return m;
 	}
 	
+	/**
+	 * Searches for patients with matching alive status
+	 * @param alive
+	 * @return ArrayList of matching patients
+	 */
 	private ArrayList<Patient> findAlive(boolean alive) {
 		ArrayList<Patient> matches = new ArrayList<Patient>();
 		for (Patient p : users) {
