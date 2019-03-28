@@ -48,40 +48,4 @@ public class StaffRegister extends Register<Staff> {
 		}
 		return matches;
 	}
-	
-	/**
-	 * Searches for a Staff with a matching Gender
-	 * @param role
-	 * @return
-	 */
-	public String[] searchGender(String Gender) {
-		ArrayList<Staff> matches = findGender(Gender);
-		String[] m = new String[matches.size()];
-		for (int i = 0; i < matches.size(); i++) {
-			m[i] = matches.get(i).toString();
-		}
-		return m;
-	}
-	
-	/**
-	 * Searches for a Staff with a matching Gender
-	 * @param role
-	 * @return
-	 */
-	private ArrayList<Staff> findGender(String Gender) {
-		ArrayList<Staff> matches = new ArrayList<Staff>();
-		for (Staff p : users) {
-			if (p.getGender() == Gender) {
-				matches.add(p);
-			}
-		}
-		return matches;
-	}
-	
-	public static void main(String[] args) {
-		StaffRegister test = new StaffRegister();
-		test.add("alexfc@live.dk", "Alexander", "Christensen", new Date(), "male" ,"Doctor");
-		test.add("ehhh@live.dk", "Alexander", "Christensen", new Date(), "x" ,"Nurse");
-		System.out.println(test);
-	}
 }
