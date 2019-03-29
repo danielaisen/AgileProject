@@ -11,7 +11,21 @@ public abstract class HospitalUser {
 	private String gender;
 //	private Department department;
 	
-	//hi
+	public boolean equals(Object obj) {
+		if (obj instanceof HospitalUser) {
+			HospitalUser obj2 = (HospitalUser) obj;
+			return (obj2.serialnum == this.serialnum); //May need to check all other fields
+		}
+		return false;
+	}
+	
+	public int hashCode() {
+		int hash = 17;
+		hash = 31 * hash + serialnum; //Do for other fields if equals() also checks all other fields
+		//hash = 31 * hash + email.hashCode();
+		return hash;
+	}
+	
 	public void set(int serialnum, String email, String name, String surname, Date birthday, String gender) {
 		setSerialnum(serialnum);
 		setEmail(email);
@@ -37,7 +51,6 @@ public abstract class HospitalUser {
 		this.email = email; 
 	}
 
-	//sammys
 	public String getName() { 
 		return name; 
 	}
