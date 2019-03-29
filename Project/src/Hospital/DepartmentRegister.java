@@ -1,14 +1,13 @@
 package Hospital;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class DepartmentRegister extends Department{
 	
-	public DepartmentRegister() {
-		
-	}
+
 	//departments is a map mapping string department names to objects of department
-	private Map<String, Department> departments = new Map<String, Department>();
+	private Map<String, Department> departments = new HashMap<String, Department>();
 	/**
 	 * creates a new department and adds it to a map of departments (map: department name -> object of department with that name)
 	 * @param departmentName name you want to give to department 
