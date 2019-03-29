@@ -20,7 +20,7 @@ public abstract class Register<T extends HospitalUser> {
 	 * @param serialnum
 	 * @return ArrayList of matching HospitalUsers
 	 */
-	private ArrayList<T> findSerialnum(int serialnum) {
+	protected ArrayList<T> findSerialnum(int serialnum) {
 		ArrayList<T> matches = new ArrayList<T>();
 		for (T p : users) {
 			if (p.getSerialnum() == serialnum) {

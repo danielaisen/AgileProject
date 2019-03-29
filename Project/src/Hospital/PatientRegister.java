@@ -108,7 +108,7 @@ public class PatientRegister extends Register<Patient> {
 	 * @return ArrayList of matching patients
 	 */
 	private void moveDepartment(int serialnum, String newDepartmentName) {
-		ArrayList<T> match = findSerialnum (serialnum);
+		ArrayList<Patient> match = findSerialnum(serialnum);
 		for (Patient p : match) {
 			if (p.getDepartment() != newDepartmentName) {
 				p.setDepartment(newDepartmentName);

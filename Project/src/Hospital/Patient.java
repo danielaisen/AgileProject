@@ -14,7 +14,7 @@ public class Patient extends HospitalUser {
 	private String address;
 	private int phoneNumber;
 	private boolean alive;
-	private department;
+	private String department;
 	
 	//This is protected so that there can't be free floating patients. Can only make one in a register
 	/**
