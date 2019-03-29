@@ -20,7 +20,7 @@ public abstract class HospitalUser {
 		setBirthday(birthday);
 		setGender(gender);
 	}
-
+	
 	public int getSerialnum() { 
 		return serialnum; 
 	}
