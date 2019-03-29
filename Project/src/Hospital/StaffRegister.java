@@ -15,8 +15,8 @@ public class StaffRegister extends Register<Staff> {
 	 * @param gender
 	 * @param role
 	 */
-	public void add(String email, String name, String surname, Date birthday, String gender, String role) {
-		users.add(new Staff(serialnum, email, name, surname, birthday, gender, role));
+	public void add(String email, String name, String surname, Date birthday, String gender, String role, String department) {
+		users.add(new Staff(serialnum, email, name, surname, birthday, gender, role, department));
 		serialnum++;
 	}
 	
@@ -65,6 +65,8 @@ public class StaffRegister extends Register<Staff> {
 				else {
 					System.out.println("There is no department by that name");
 				}
+			
+			
 			}
 		}
 	
