@@ -101,4 +101,23 @@ public class PatientRegister extends Register<Patient> {
 		}
 		return matches;
 	}
+	
+	/**
+	 * Searches for patients with matching alive status
+	 * @param alive
+	 * @return ArrayList of matching patients
+	 */
+	private void moveDepartment(int serialnum, String newDepartmentName) {
+		ArrayList<T> match = findSerialnum (serialnum);
+		for (Patient p : match) {
+			if (p.getDepartment() != newDepartmentName) {
+				p.setDepartment(newDepartmentName);
+			}
+		}
+	
+	}
+	
+	
+	
+	
 }
