@@ -3,11 +3,17 @@ package Hospital;
 import java.util.ArrayList;
 
 public class Department {
-	
+
 	private int beds;
 	private ArrayList<Patient> patients = new ArrayList<Patient>(); //amount of patients is the amount of beds used
 	private ArrayList<Staff> staff = new ArrayList<Staff>();
 	private String deptName;
+	//add boolean ingoing outgoing
+	/**
+	 * how to comment class
+	 * @param deptName
+	 * @param beds
+	 */
 	
 	public Department(String deptName, int beds) {
 		this.deptName = deptName;
