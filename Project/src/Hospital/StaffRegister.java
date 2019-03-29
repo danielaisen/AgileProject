@@ -48,7 +48,11 @@ public class StaffRegister extends Register<Staff> {
 		}
 		return matches;
 	}
-	
+	/**
+	 * Moves a staff member to a specified department
+	 * @param serialnum serial number of staff member to be moved	
+	 * @param newDepartmentName name of department to which staff is to be moved
+	 */
 	private void moveDepartment(int serialnum, String newDepartmentName) {
 
 		ArrayList<Staff> match = findSerialnum(serialnum);

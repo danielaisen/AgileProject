@@ -103,9 +103,9 @@ public class PatientRegister extends Register<Patient> {
 	}
 	
 	/**
-	 * Searches for patients with matching alive status
-	 * @param alive
-	 * @return ArrayList of matching patients
+	 * Moves a patient member to a specified department
+	 * @param serialnum serial number of patient to be moved	
+	 * @param newDepartmentName name of department to which patient is to be moved
 	 */
 	private void moveDepartment(int serialnum, String newDepartmentName) {
 
