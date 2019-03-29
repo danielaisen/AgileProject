@@ -21,6 +21,10 @@ public class Department {
 		this.deptName = deptName;
 		this.beds = 0;
 	}
+	
+	public Department() {
+		
+	}
 	/**
 	 *  returns the number of beds in a department
 	 * @return an int representing the number of beds in a department

@@ -48,4 +48,25 @@ public class StaffRegister extends Register<Staff> {
 		}
 		return matches;
 	}
+	
+	private void moveDepartment(int serialnum, String newDepartmentName) {
+
+		ArrayList<Staff> match = findSerialnum(serialnum);
+		for (Staff s : match) {
+			if (s.getDepartment() != newDepartmentName) {
+				if(DepartmentRegister.departments.containsKey(newDepartmentName)){
+					String old = s.getDepartment();
+					Department movefrom = DepartmentRegister.departments.get(old);
+					Department moveto = DepartmentRegister.departments.get(newDepartmentName);
+					movefrom.deleteStaff(s);
+					moveto.addStaff(s);
+					s.setDepartment(newDepartmentName);
+				}
+				else {
+					System.out.println("There is no department by that name");
+				}
+			}
+		}
+	
+	}
 }

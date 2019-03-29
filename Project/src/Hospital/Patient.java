@@ -44,7 +44,6 @@ public class Patient extends HospitalUser {
 		setPhoneNumber(number);
 		setAlive(alive);
 		setDepartment(department);
-		//need to add department
 	}
 
 	public void setDepartment(String department) {
@@ -82,6 +81,7 @@ public class Patient extends HospitalUser {
 		return ("Patient: " + getSerialnum() + " ; Name: " + getName() + " " + getSurname() + " ; Gender: " + getGender()); 
 	}
 	
+
 	
 }
 

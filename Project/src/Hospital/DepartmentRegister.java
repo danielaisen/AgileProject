@@ -3,7 +3,7 @@ package Hospital;
 import java.util.HashMap;
 import java.util.Map;
 
-public static class DepartmentRegister extends Department{
+public abstract class DepartmentRegister extends Department{
 	
 	//departments is a map mapping string department names to objects of department
 	protected static Map<String, Department> departments;
@@ -42,10 +42,7 @@ public static class DepartmentRegister extends Department{
 	public void deleteDepartment(String departmentName) {
 		departments.remove(departmentName);
 	}
-	
-	public void movePatient(int serialNumber) {
-		
-	}
+
 	
 
 }
