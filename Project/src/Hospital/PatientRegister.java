@@ -108,10 +108,23 @@ public class PatientRegister extends Register<Patient> {
 	 * @return ArrayList of matching patients
 	 */
 	private void moveDepartment(int serialnum, String newDepartmentName) {
+
 		ArrayList<Patient> match = findSerialnum(serialnum);
 		for (Patient p : match) {
 			if (p.getDepartment() != newDepartmentName) {
-				p.setDepartment(newDepartmentName);
+				if(DepartmentRegister.departments.containsKey(newDepartmentName)){
+					String old = p.getDepartment();
+					Department movefrom = DepartmentRegister.departments.get(old);
+					Department moveto = DepartmentRegister.departments.get(newDepartmentName);
+					movefrom.deletePatient(p);
+					moveto.addPatient(p);
+					p.setDepartment(newDepartmentName);
+				}
+				else {
+					System.out.println("There is no department by that name");
+				}
+			
+				
 			}
 		}
 	
