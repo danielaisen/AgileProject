@@ -17,6 +17,9 @@ public abstract class DepartmentRegister extends Department{
 		this.departments = new HashMap<String, Department>();
 	}
 	public void createDepartment(String departmentName, int beds) {
+		if(this.departments == null) {
+			this.departments = new HashMap<String, Department>();
+		}
 		departments.put(departmentName, new Department(departmentName, beds));
 	}
 	/**
@@ -24,6 +27,9 @@ public abstract class DepartmentRegister extends Department{
 	 * @param departmentName name you want to give to department - beds is set to 0
 	 */
 	public void createDepartment(String departmentName) {
+		if(this.departments == null) {
+			this.departments = new HashMap<String, Department>();
+		}
 		departments.put(departmentName, new Department(departmentName));
 	}
 	
