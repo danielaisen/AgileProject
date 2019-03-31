@@ -52,3 +52,4 @@ public abstract class DepartmentRegister extends Department{
 	
 
 }
+
