@@ -5,7 +5,6 @@ import java.util.Date;
 
 public abstract class Register<T extends HospitalUser> {
 	protected ArrayList<T> users = new ArrayList<T>();
-	protected ArrayList<Department> departments = new ArrayList<Department>();
 	protected static int serialnum = 0;
 	
 	public String toString() {

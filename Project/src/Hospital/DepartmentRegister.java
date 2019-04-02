@@ -3,10 +3,10 @@ package Hospital;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class DepartmentRegister extends Department{
+public class DepartmentRegister{
 	
 	//departments is a map mapping string department names to objects of department
-	protected static Map<String, Department> departments;
+	protected Map<String, Department> departments;
 	/**
 	 * creates a new department and adds it to a map of departments (map: department name -> object of department with that name)
 	 * @param departmentName name you want to give to department 
@@ -42,7 +42,6 @@ public abstract class DepartmentRegister extends Department{
 	public void deleteDepartment(String departmentName) {
 		departments.remove(departmentName);
 	}
-
 	
 
 }
