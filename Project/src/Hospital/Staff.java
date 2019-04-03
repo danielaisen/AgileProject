@@ -6,8 +6,8 @@ public class Staff extends HospitalUser {
 	private String role;
 	
 	
-	public Staff(int serialnum, String email, String name, String surname, Date birthday, String gender, String role) {
-		set(serialnum, email, name, surname, birthday, gender);
+	public Staff(int serialnum, String email, String name, String surname, Date birthday, String gender, String role, String department) {
+		set(serialnum, email, name, surname, birthday, gender, department);
 		setRole(role);
 		//need to add department
 	}

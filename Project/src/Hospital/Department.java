@@ -109,6 +109,11 @@ public class Department {
 	public void deletePatient(Patient patient) {
 		patients.values().remove(patient);
 	}
+	
+	protected Patient getPatient(int serialnum) {
+		return patients.get(serialnum);
+	}
+	
 	/**
 	 * remove a staff member from the arraylist of staff in a department
 	 * @param employee employee to be removed

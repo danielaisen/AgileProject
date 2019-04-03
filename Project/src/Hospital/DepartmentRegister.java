@@ -42,4 +42,11 @@ public class DepartmentRegister{
 	public void deleteDepartment(String departmentName) {
 		departments.remove(departmentName);
 	}
+	public void movePatient(int serialnum, String departmentName) {
+		Patient p = departments.get(departmentName).getPatient(serialnum); // gets the patient
+		departments.get(p.getDepartment()).deletePatient(p); 			    // deletes patient from department
+		p.setDepartment(departmentName);
+		
+		
+	}
 }

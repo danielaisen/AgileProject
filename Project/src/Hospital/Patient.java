@@ -14,6 +14,8 @@ public class Patient extends HospitalUser {
 	private String address;
 	private int phoneNumber;
 	private boolean alive;
+	private boolean inpatient;
+
 	
 	//This is protected so that there can't be free floating patients. Can only make one in a register
 	/**
@@ -29,16 +31,18 @@ public class Patient extends HospitalUser {
 	 * @param alive
 	 */
 	protected Patient(int serialnum, String email, String name, String surname, Date birthday,
-			String gender, String address, int phoneNumber, boolean alive) {
-		set(serialnum, email, name, surname, birthday, gender);
+			String gender, String address, int phoneNumber, boolean alive, String department, boolean inpatient) {
+		set(serialnum, email, name, surname, birthday, gender, department);
 		setAddress(address);
 		setPhoneNumber(phoneNumber);
 		setAlive(alive);
+		setInpatient(inpatient);
+		
 	}
 	
 	public void setPatient(int serialnum, String email, String name, String surname, Date birthday,
-			String gender, String address, int phoneNumber, boolean alive) {
-		set(serialnum, email, name, surname, birthday, gender);
+			String gender, String address, int phoneNumber, boolean alive, String department) {
+		set(serialnum, email, name, surname, birthday, gender, department);
 		setAddress(address);
 		setPhoneNumber(phoneNumber);
 		setAlive(alive);
@@ -71,6 +75,14 @@ public class Patient extends HospitalUser {
 	
 	public String toString() {
 		return ("Patient: " + getSerialnum() + " ; Name: " + getName() + " " + getSurname() + " ; Gender: " + getGender()); 
+	}
+
+	public boolean getInpatient() {
+		return inpatient;
+	}
+
+	public void setInpatient(boolean inpatient) {
+		this.inpatient = inpatient;
 	}
 }
 

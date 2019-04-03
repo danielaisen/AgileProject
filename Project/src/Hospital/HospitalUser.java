@@ -9,7 +9,7 @@ public abstract class HospitalUser {
 	private String surname;
 	private Date birthday;
 	private String gender;
-//	private Department department;
+	private String department;
 	
 	public boolean equals(Object obj) {
 		if (obj instanceof HospitalUser) {
@@ -26,13 +26,14 @@ public abstract class HospitalUser {
 		return hash;
 	}
 	
-	public void set(int serialnum, String email, String name, String surname, Date birthday, String gender) {
+	public void set(int serialnum, String email, String name, String surname, Date birthday, String gender, String department) {
 		setSerialnum(serialnum);
 		setEmail(email);
 		setName(name);
 		setSurname(surname);
 		setBirthday(birthday);
 		setGender(gender);
+		setDepartment(department);
 	}
 
 	public int getSerialnum() { 
@@ -81,6 +82,14 @@ public abstract class HospitalUser {
 	
 	public void setSurname(String surname) { 
 		this.surname = surname; 
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 	
 }

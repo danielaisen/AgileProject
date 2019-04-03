@@ -9,10 +9,11 @@ public class PatientRegister extends Register<Patient> {
 	 * Adds a patient to the register
 	 * @param p Patient
 	 */
-	public void add(String email, String name, String surname, Date birthday,
-			String gender, String address, int phoneNumber, boolean alive) {
-		users.put(serialnum, new Patient(serialnum, email, name, surname, birthday, gender, address, phoneNumber, alive));
+	public int add(String email, String name, String surname, Date birthday,
+			String gender, String address, int phoneNumber, boolean alive, String department, boolean inpatient) {
+		users.put(serialnum, new Patient(serialnum, email, name, surname, birthday, gender, address, phoneNumber, alive, department, inpatient));
 		serialnum++;
+		return serialnum - 1;
 	}
 	
 	

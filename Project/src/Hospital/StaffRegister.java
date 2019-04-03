@@ -15,9 +15,10 @@ public class StaffRegister extends Register<Staff> {
 	 * @param gender
 	 * @param role
 	 */
-	public void add(String email, String name, String surname, Date birthday, String gender, String role) {
-		users.put(serialnum, new Staff(serialnum, email, name, surname, birthday, gender, role));
+	public int add(String email, String name, String surname, Date birthday, String gender, String role, String department) {
+		users.put(serialnum, new Staff(serialnum, email, name, surname, birthday, gender, role, department));
 		serialnum++;
+		return serialnum - 1;
 	}
 	
 	/**
