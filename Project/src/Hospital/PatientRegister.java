@@ -10,8 +10,8 @@ public class PatientRegister extends Register<Patient> {
 	 * @param p Patient
 	 */
 	public void add(String email, String name, String surname, Date birthday,
-			String gender, String address, int number, boolean alive) {
-		users.add(new Patient(serialnum, email, name, surname, birthday, gender, address, number, alive));
+			String gender, String address, int phoneNumber, boolean alive) {
+		users.add(new Patient(serialnum, email, name, surname, birthday, gender, address, phoneNumber, alive));
 		serialnum++;
 	}
 	
@@ -46,11 +46,11 @@ public class PatientRegister extends Register<Patient> {
 	
 	/**
 	 * Searches for patients with matching phone numbers
-	 * @param number
+	 * @param phoneNumber
 	 * @return String array of matching patients
 	 */
-	public String[] searchNumber(int number) {
-		ArrayList<Patient> matches = findNumber(number);
+	public String[] searchNumber(int phoneNumber) {
+		ArrayList<Patient> matches = findNumber(phoneNumber);
 		String[] m = new String[matches.size()];
 		for (int i = 0; i < matches.size(); i++) {
 			m[i] = matches.get(i).toString();
@@ -60,13 +60,13 @@ public class PatientRegister extends Register<Patient> {
 	
 	/**
 	 * Searches for patients with matching phone numbers
-	 * @param number
+	 * @param phoneNumber
 	 * @return ArrayList of matching patients
 	 */
-	private ArrayList<Patient> findNumber(int number) {
+	private ArrayList<Patient> findNumber(int phoneNumber) {
 		ArrayList<Patient> matches = new ArrayList<Patient>();
 		for (Patient p : users) {
-			if (p.getPhoneNumber() == number) {
+			if (p.getPhoneNumber() == phoneNumber) {
 				matches.add(p);
 			}
 		}

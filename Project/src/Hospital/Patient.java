@@ -29,18 +29,18 @@ public class Patient extends HospitalUser {
 	 * @param alive
 	 */
 	protected Patient(int serialnum, String email, String name, String surname, Date birthday,
-			String gender, String address, int number, boolean alive) {
+			String gender, String address, int phoneNumber, boolean alive) {
 		set(serialnum, email, name, surname, birthday, gender);
 		setAddress(address);
-		setPhoneNumber(number);
+		setPhoneNumber(phoneNumber);
 		setAlive(alive);
 	}
 	
 	public void setPatient(int serialnum, String email, String name, String surname, Date birthday,
-			String gender, String address, int number, boolean alive) {
+			String gender, String address, int phoneNumber, boolean alive) {
 		set(serialnum, email, name, surname, birthday, gender);
 		setAddress(address);
-		setPhoneNumber(number);
+		setPhoneNumber(phoneNumber);
 		setAlive(alive);
 		//need to add department
 	}
@@ -49,8 +49,8 @@ public class Patient extends HospitalUser {
 		this.alive = alive;
 	}
 
-	public void setPhoneNumber(int number) {
-		this.phoneNumber = number;
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public void setAddress(String address) {
