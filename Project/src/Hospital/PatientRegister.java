@@ -45,7 +45,7 @@ public class PatientRegister extends Register<Patient> {
 	}
 	
 	/**
-	 * Searches for patients with matching phone phoneNumbers
+	 * Searches for patients with matching phone numbers
 	 * @param phoneNumber
 	 * @return String array of matching patients
 	 */
