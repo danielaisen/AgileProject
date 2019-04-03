@@ -35,6 +35,7 @@ public class DepartmentRegister{
 	public Department findDepartment(String departmentName) {
 		return departments.get(departmentName);
 	}
+	
 	/**
 	 * Removes a department from the map of departments, by department name
 	 * @param departmentName name of department you want to remove
@@ -42,11 +43,42 @@ public class DepartmentRegister{
 	public void deleteDepartment(String departmentName) {
 		departments.remove(departmentName);
 	}
+	
 	public void movePatient(int serialnum, String departmentName) {
-		Patient p = departments.get(departmentName).getPatient(serialnum); // gets the patient
-		departments.get(p.getDepartment()).deletePatient(p); 			    // deletes patient from department
-		p.setDepartment(departmentName);
-		
-		
+		for (String dep : departments.keySet()) {
+			if (departments.get(dep).containsPatient(serialnum)) {
+				Patient patient = departments.get(dep).getPatient(serialnum);
+				departments.get(dep).deletePatient(serialnum);
+				departments.get(departmentName).addPatient(patient);
+				departments.get(departmentName).getPatient(serialnum).setDepartment(departmentName);
+			}
+		}
+	}
+	
+	public void moveStaff(int serialnum, String departmentName) {
+		for (String dep : departments.keySet()) {
+			if (departments.get(dep).containsStaff(serialnum)) {
+				Staff staff = departments.get(dep).getStaff(serialnum);
+				departments.get(dep).deletePatient(serialnum);
+				departments.get(departmentName).addStaff(staff);
+				departments.get(departmentName).getStaff(serialnum).setDepartment(departmentName);
+			}
+		}
+	}
+	
+	public void deletePatient(int serialnum) {
+		for (String dep : departments.keySet()) {
+			if (departments.get(dep).containsPatient(serialnum)) {
+				departments.get(dep).deletePatient(serialnum);
+			}
+		}
+	}
+	
+	public void deleteStaff(int serialnum) {
+		for (String dep : departments.keySet()) {
+			if (departments.get(dep).containsStaff(serialnum)) {
+				departments.get(dep).deleteStaff(serialnum);
+			}
+		}
 	}
 }

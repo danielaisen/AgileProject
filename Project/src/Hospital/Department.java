@@ -35,6 +35,7 @@ public class Department {
 	public int getBedsTotal() {
 		return beds;
 	}
+	
 	/**
 	 * returns the number of free beds in a department
 	 * It's calculated by subtracting the amount of patients from the number of beds
@@ -44,6 +45,7 @@ public class Department {
 	public int getFreeBeds(){
 		return (beds-patients.size());
 	}
+	
 	/**
 	 * returns the number of occupied beds in a department
 	 * @return returns an int representing the number of occupied beds in a department
@@ -51,6 +53,7 @@ public class Department {
 	public int getOccupiedBeds() {
 		return patients.size();
 	}
+	
 	/**
 	 * Adds beds to a department
 	 * @param beds the amount of beds to be added
@@ -58,6 +61,7 @@ public class Department {
 	public void addNewBeds(int beds) {
 		this.beds += beds;
 	}
+	
 	/**
 	 * Removes beds from a department
 	 * if the amount of beds in a department is less than the amount of beds to be subtracted, the amount of beds will be unchanged
@@ -73,6 +77,7 @@ public class Department {
 		}
 	
 	}
+	
 	/**
 	 * gets the name of a department
 	 * @return the name of the department
@@ -80,6 +85,7 @@ public class Department {
 	public String getDeptName() {
 		return deptName;
 	}
+	
 	/**
 	 * sets the name of a department
 	 * @param deptName the name of the department to be set
@@ -106,20 +112,24 @@ public class Department {
 	 * remove a patient from the arraylist of patientes in a department
 	 * @param patient patient to be removed
 	 */
-	public void deletePatient(Patient patient) {
-		patients.values().remove(patient);
+	public void deletePatient(int serialnum) {
+		patients.remove(serialnum);
 	}
 	
 	protected Patient getPatient(int serialnum) {
 		return patients.get(serialnum);
 	}
 	
+	protected Staff getStaff(int serialnum) {
+		return staff.get(serialnum);
+	}
+	
 	/**
 	 * remove a staff member from the arraylist of staff in a department
 	 * @param employee employee to be removed
 	 */
-	public void deleteStaff(Staff employee) {
-		staff.values().remove(employee);
+	public void deleteStaff(int serialnum) {
+		staff.remove(serialnum);
 	}
 	
 	public String[] getPatients() {
@@ -140,5 +150,13 @@ public class Department {
 		String[] m = new String[stafflist.size()];
 		m = stafflist.toArray(m);
 		return m;
-	}	
+	}
+	
+	public boolean containsPatient(int serialnum) {
+		return patients.containsKey(serialnum);
+	}
+	
+	public boolean containsStaff(int serialnum) {
+		return staff.containsKey(serialnum);
+	}
 }

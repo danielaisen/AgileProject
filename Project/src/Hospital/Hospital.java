@@ -20,23 +20,23 @@ public class Hospital {
 	
 	public void movePatient(int serialnum, String departmentName) {
 		departmentRegister.movePatient(serialnum, departmentName);
-//		departmentRegister.findDepartment(patientRegister.findSerialnum(serialnum).getDepartment()).deletePatient(patient.));
-//		patientRegister.getPatient(serialnum).setDepartment(departmentName);
-//		departmentRegister.findDepartment(departmentName).addPatient(patientRegister.getPatient(serialnum));
-
+		patientRegister.findSerialnum(serialnum).setDepartment(departmentName);
 	}
 	
-	public void moveStaffMember(String serialnum, String departmentName) {
-//		departmentRegister.findDepartment(staffRegister.getStaff(serialnum).getDepartment()).deleteStaff(staffRegister.getStaff(serialnum));
-//		staffRegister.getStaff(serialnum).setDepartment(departmentName);
-//		departmentRegister.findDepartment(departmentName).addStaff(staffRegister.getStaff(serialnum));
+	public void moveStaffMember(int serialnum, String departmentName) {
+		departmentRegister.moveStaff(serialnum, departmentName);
+		staffRegister.findSerialnum(serialnum).setDepartment(departmentName);
 	}
 	
-	public void dischargePatient(String serialnum) {
-//		departmentRegister.findDepartment(patientRegister.getPatient(serialnum).getDepartment()).deletePatient(patientRegister.getPatient(serialnum));
+	public void dischargePatient(int serialnum) {
+		departmentRegister.deletePatient(serialnum);
+		//remove from patientRegister
 	}
 	
-
+	public void dischargeStaff(int serialnum) {
+		departmentRegister.deleteStaff(serialnum);
+		//remove from staffRegister
+	}
 	
 	public void createDepartment(String departmentName) {
 		departmentRegister.createDepartment(departmentName);
