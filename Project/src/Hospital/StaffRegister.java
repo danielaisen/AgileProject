@@ -16,63 +16,37 @@ public class StaffRegister extends Register<Staff> {
 	 * @param role
 	 */
 	public void add(String email, String name, String surname, Date birthday, String gender, String role, String department) {
-		users.add(new Staff(serialnum, email, name, surname, birthday, gender, role, department));
-		serialnum++;
+		staff.put("s"+Integer.toString(staffserialnum),new Staff("s"+Integer.toString(staffserialnum), email, name, surname, birthday, gender, role, department));
+		staffserialnum++;
 	}
 	
-	/**
-	 * Searches for a Staff with a matching Role
-	 * @param role
-	 * @return
-	 */
+	protected Staff getStaff(String serialnum) {
+		return staff.get(serialnum);
+	}
+	
+	protected String matches(String email, String name, String surname, Date birthday, String gender, String role, String department) {
+			String id = "";
+			for (String key: staff.keySet()) {
+				if((staff.get(key).getEmail()==email) & (staff.get(key).getName()==name) & (staff.get(key).getSurname()==surname) & (staff.get(key).getBirthday()==birthday) &
+						(staff.get(key).getGender()==gender) & (staff.get(key).getDepartment()==department) & (staff.get(key).getRole()==role)){
+					id = key;
+				}
+			}
+			return id;
+	}
+	
 	public String[] searchRole(String role) {
-		ArrayList<Staff> matches = findRole(role);
-		String[] m = new String[matches.size()];
-		for (int i = 0; i < matches.size(); i++) {
-			m[i] = matches.get(i).toString();
+		ArrayList<String> matches = new ArrayList<String>();
+		for (String key : staff.keySet()) {
+			if (staff.get(key).getRole() == role) {
+				matches.add(patients.get(key).toString());
+			}
 		}
+		
+		String[] m = new String[matches.size()];
+		m = matches.toArray(m);
 		return m;
 	}
 	
-	/**
-	 * Searches for a Staff with a matching Role
-	 * @param role
-	 * @return
-	 */
-	private ArrayList<Staff> findRole(String role) {
-		ArrayList<Staff> matches = new ArrayList<Staff>();
-		for (Staff p : users) {
-			if (p.getRole() == role) {
-				matches.add(p);
-			}
-		}
-		return matches;
-	}
-	/**
-	 * Moves a staff member to a specified department
-	 * @param serialnum serial number of staff member to be moved	
-	 * @param newDepartmentName name of department to which staff is to be moved
-	 */
-	private void moveDepartment(int serialnum, String newDepartmentName) {
-
-		ArrayList<Staff> match = findSerialnum(serialnum);
-		for (Staff s : match) {
-			if (s.getDepartment() != newDepartmentName) {
-				if(DepartmentRegister.departments.containsKey(newDepartmentName)){
-					String old = s.getDepartment();
-					Department movefrom = DepartmentRegister.departments.get(old);
-					Department moveto = DepartmentRegister.departments.get(newDepartmentName);
-					movefrom.deleteStaff(s);
-					moveto.addStaff(s);
-					s.setDepartment(newDepartmentName);
-				}
-				else {
-					System.out.println("There is no department by that name");
-				}
-			
-			
-			}
-		}
 	
-	}
 }

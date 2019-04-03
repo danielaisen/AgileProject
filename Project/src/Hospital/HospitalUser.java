@@ -3,7 +3,7 @@ package Hospital;
 import java.util.Date;
 
 public abstract class HospitalUser {
-	private int serialnum;
+	private String serialnum;
 	private String email;
 	private String name;
 	private String surname;
@@ -21,12 +21,12 @@ public abstract class HospitalUser {
 	
 	public int hashCode() {
 		int hash = 17;
-		hash = 31 * hash + serialnum; //Do for other fields if equals() also checks all other fields
+		hash = 31 * hash + Integer.parseInt(serialnum.substring(1,serialnum.length())); //Do for other fields if equals() also checks all other fields
 		//hash = 31 * hash + email.hashCode();
 		return hash;
 	}
 	
-	public void set(int serialnum, String email, String name, String surname, Date birthday, String gender) {
+	public void set(String serialnum, String email, String name, String surname, Date birthday, String gender) {
 		setSerialnum(serialnum);
 		setEmail(email);
 		setName(name);
@@ -35,11 +35,11 @@ public abstract class HospitalUser {
 		setGender(gender);
 	}
 	
-	public int getSerialnum() { 
+	public String getSerialnum() { 
 		return serialnum; 
 	}
 	
-	public void setSerialnum(int serialnum) { 
+	public void setSerialnum(String serialnum) { 
 		this.serialnum = serialnum; 
 	}
 	

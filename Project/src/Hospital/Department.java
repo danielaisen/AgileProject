@@ -1,12 +1,15 @@
 package Hospital;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Department {
-	//implements SearchClass (to be added)
+
 	private int beds;
-	private ArrayList<Patient> patients = new ArrayList<Patient>(); //amount of patients is the amount of beds used
-	private ArrayList<Staff> staff = new ArrayList<Staff>();
+	private Map<String,Patient> patients;
+	private Map<String, Staff> staff;
+
 	private String deptName;
 	
 	
@@ -14,17 +17,17 @@ public class Department {
 	public Department(String deptName, int beds) {
 		this.deptName = deptName;
 		this.beds = beds;
-
+		patients = new HashMap<String,Patient>();
+		staff = new HashMap<String,Staff>();
 	}
 	
 	public Department(String deptName) {
 		this.deptName = deptName;
 		this.beds = 0;
+		staff = new HashMap<String,Staff>();
+		patients = new HashMap<String,Patient>();
 	}
-	
-	public Department() {
-		
-	}
+
 	/**
 	 *  returns the number of beds in a department
 	 * @return an int representing the number of beds in a department
@@ -90,39 +93,48 @@ public class Department {
 	 * @param employee The staff member to be added
 	 */
 	public void addStaff(Staff employee) {
-		staff.add(employee);
+		staff.put(employee.getSerialnum(), employee);
 	}
 	/**
 	 * Adds a patient to the hashmap of patients in a department
 	 * @param patient the patient to be added
 	 */
 	public void addPatient(Patient patient) {
-		patients.add(patient);
+		patients.put(patient.getSerialnum(),patient);
 	}
 	/**
 	 * remove a patient from the arraylist of patientes in a department
 	 * @param patient patient to be removed
 	 */
 	public void deletePatient(Patient patient) {
-		patients.remove(patient);
+		patients.values().remove(patient);
 	}
 	/**
 	 * remove a staff memeber from the arraylist of staff in a department
 	 * @param employee employee to be removed
 	 */
 	public void deleteStaff(Staff employee) {
-		staff.remove(employee);
+		staff.values().remove(employee);
 	}
 	
-
-
-
-//public static void main(String[] args) {
-//Department d = new Department("hello");
-//
-//Staff employee = new Staff(1, "a", "b", "c", null, "d", "e");
-//
-//d.addStaff(employee);
-//System.out.println(d.staff);
-//}
+	public String[] getPatients() {
+		ArrayList<String> patientslist = new ArrayList<String>();
+		for (String key : patients.keySet()) {
+			patientslist.add(patients.get(key).toString());
+		}
+		String[] m = new String[patientslist.size()];
+		m = patientslist.toArray(m);
+		return m;
+	}
+	
+	public String[] getStaff() {
+		ArrayList<String> stafflist = new ArrayList<String>();
+		for (String key : staff.keySet()) {
+			stafflist.add(staff.get(key).toString());
+		}
+		String[] m = new String[stafflist.size()];
+		m = stafflist.toArray(m);
+		return m;
+	}
+	
 }

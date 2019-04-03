@@ -11,127 +11,66 @@ public class PatientRegister extends Register<Patient> {
 	 * @param p Patient
 	 */
 	public void add(String email, String name, String surname, Date birthday,
-			String gender, String address, int number, boolean alive) {
-		users.add(new Patient(serialnum, email, name, surname, birthday, gender, address, number, alive));
-		serialnum++;
+			String gender, String address, int number, boolean alive, String department, boolean inpatient) {
+		patients.put("p"+Integer.toString(patientserialnum), new Patient("p"+Integer.toString(patientserialnum), email, name, surname, birthday, gender, address, number, alive, department, inpatient));
+		patientserialnum++;
 	}
 	
+	protected Patient getPatient(String serialnum) {
+		return patients.get(serialnum);
+	}
 	
-	/**
-	 * Searches for patients with matching address
-	 * @param address
-	 * @return String array of patients
-	 */
+	protected String matches(String email, String name, String surname, Date birthday,
+			String gender, String address, int number, boolean alive, String department, boolean inpatient) {
+			String id = "";
+			for (String key: patients.keySet()) {
+				if((patients.get(key).getEmail()==email) & (patients.get(key).getName()==name) & (patients.get(key).getSurname()==surname) & (patients.get(key).getBirthday()==birthday) &
+						(patients.get(key).getGender()==gender) & (patients.get(key).getAddress()==address) & (patients.get(key).getPhoneNumber()==number) & (patients.get(key).getAlive()==alive)
+						& (patients.get(key).getDepartment()==department) & (patients.get(key).getInpatientBool()==inpatient)){
+					id = key;
+				}
+			}
+			return id;
+	}
+	
+	public String[] searchInpatient() {
+		ArrayList<String> matches = new ArrayList<String>();
+		for (String key : patients.keySet()) {
+			if (patients.get(key).getInpatientBool() == true) {
+				matches.add(patients.get(key).toString());
+			}
+		}
+		
+		String[] m = new String[matches.size()];
+		m = matches.toArray(m);
+		return m;
+	}
+	
+	public String[] searchPhoneNumber(int phoneNumber) {
+		ArrayList<String> matches = new ArrayList<String>();
+		for (String key : patients.keySet()) {
+			if (patients.get(key).getPhoneNumber() == phoneNumber) {
+				matches.add(patients.get(key).toString());
+			}
+		}
+		
+		String[] m = new String[matches.size()];
+		m = matches.toArray(m);
+		return m;
+	}
+	
 	public String[] searchAddress(String address) {
-		ArrayList<Patient> matches = findAddress(address);
-		String[] m = new String[matches.size()];
-		for (int i = 0; i < matches.size(); i++) {
-			m[i] = matches.get(i).toString();
+		ArrayList<String> matches = new ArrayList<String>();
+		for (String key : patients.keySet()) {
+			if (patients.get(key).getAddress() == address) {
+				matches.add(patients.get(key).toString());
+			}
 		}
+		
+		String[] m = new String[matches.size()];
+		m = matches.toArray(m);
 		return m;
 	}
-	/**
-	 * Searches for patients with matching address
-	 * @param address
-	 * @return ArrayList of matching patients
-	 */
-	private ArrayList<Patient> findAddress(String address) {
-		ArrayList<Patient> matches = new ArrayList<Patient>();
-		for (Patient p : users) {
-			if (p.getAddress() == address) {
-				matches.add(p);
-			}
-		}
-		return matches;
-	}
-	
-	/**
-	 * Searches for patients with matching phone numbers
-	 * @param number
-	 * @return String array of matching patients
-	 */
-	public String[] searchNumber(int number) {
-		ArrayList<Patient> matches = findNumber(number);
-		String[] m = new String[matches.size()];
-		for (int i = 0; i < matches.size(); i++) {
-			m[i] = matches.get(i).toString();
-		}
-		return m;
-	}
-	
-	/**
-	 * Searches for patients with matching phone numbers
-	 * @param number
-	 * @return ArrayList of matching patients
-	 */
-	private ArrayList<Patient> findNumber(int number) {
-		ArrayList<Patient> matches = new ArrayList<Patient>();
-		for (Patient p : users) {
-			if (p.getPhoneNumber() == number) {
-				matches.add(p);
-			}
-		}
-		return matches;
-	}
-	
-	/**
-	 * Searches for patients with matching alive status
-	 * @param alive
-	 * @return String array of matching patients
-	 */
-	public String[] searchAlive(boolean alive) {
-		ArrayList<Patient> matches = findAlive(alive);
-		String[] m = new String[matches.size()];
-		for (int i = 0; i < matches.size(); i++) {
-			m[i] = matches.get(i).toString();
-		}
-		return m;
-	}
-	
-	/**
-	 * Searches for patients with matching alive status
-	 * @param alive
-	 * @return ArrayList of matching patients
-	 */
-	private ArrayList<Patient> findAlive(boolean alive) {
-		ArrayList<Patient> matches = new ArrayList<Patient>();
-		for (Patient p : users) {
-			if (p.getAlive() == alive) {
-				matches.add(p);
-			}
-		}
-		return matches;
-	}
-	
-	/**
-	 * Moves a patient member to a specified department
-	 * @param serialnum serial number of patient to be moved	
-	 * @param newDepartmentName name of department to which patient is to be moved
-	 */
-	private void moveDepartment(int serialnum, String newDepartmentName) {
-
-		ArrayList<Patient> match = findSerialnum(serialnum);
-		for (Patient p : match) {
-			if (p.getDepartment() != newDepartmentName) {
-				if(DepartmentRegister.departments.containsKey(newDepartmentName)){
-					String old = p.getDepartment();
-					Department movefrom = DepartmentRegister.departments.get(old);
-					Department moveto = DepartmentRegister.departments.get(newDepartmentName);
-					movefrom.deletePatient(p);
-					moveto.addPatient(p);
-					p.setDepartment(newDepartmentName);
-				}
-				else {
-					System.out.println("There is no department by that name");
-				}
-			
-				
-			}
-		}
-	
-	}
-	
-	
 	
 	
 }
