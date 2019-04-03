@@ -16,7 +16,7 @@ public class StaffRegister extends Register<Staff> {
 	 * @param role
 	 */
 	public void add(String email, String name, String surname, Date birthday, String gender, String role) {
-		users.add(new Staff(serialnum, email, name, surname, birthday, gender, role));
+		users.put(serialnum, new Staff(serialnum, email, name, surname, birthday, gender, role));
 		serialnum++;
 	}
 	
@@ -39,11 +39,11 @@ public class StaffRegister extends Register<Staff> {
 	 * @param role
 	 * @return
 	 */
-	private ArrayList<Staff> findRole(String role) {
+	protected ArrayList<Staff> findRole(String role) {
 		ArrayList<Staff> matches = new ArrayList<Staff>();
-		for (Staff p : users) {
-			if (p.getRole() == role) {
-				matches.add(p);
+		for (Integer key : users.keySet()) {
+			if (users.get(key).getRole() == role) {
+				matches.add(users.get(key));
 			}
 		}
 		return matches;

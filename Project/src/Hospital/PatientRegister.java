@@ -11,7 +11,7 @@ public class PatientRegister extends Register<Patient> {
 	 */
 	public void add(String email, String name, String surname, Date birthday,
 			String gender, String address, int phoneNumber, boolean alive) {
-		users.add(new Patient(serialnum, email, name, surname, birthday, gender, address, phoneNumber, alive));
+		users.put(serialnum, new Patient(serialnum, email, name, surname, birthday, gender, address, phoneNumber, alive));
 		serialnum++;
 	}
 	
@@ -34,11 +34,11 @@ public class PatientRegister extends Register<Patient> {
 	 * @param address
 	 * @return ArrayList of matching patients
 	 */
-	private ArrayList<Patient> findAddress(String address) {
+	protected ArrayList<Patient> findAddress(String address) {
 		ArrayList<Patient> matches = new ArrayList<Patient>();
-		for (Patient p : users) {
-			if (p.getAddress() == address) {
-				matches.add(p);
+		for (Integer key : users.keySet()) {
+			if (users.get(key).getAddress() == address) {
+				matches.add(users.get(key));
 			}
 		}
 		return matches;
@@ -63,11 +63,11 @@ public class PatientRegister extends Register<Patient> {
 	 * @param phoneNumber
 	 * @return ArrayList of matching patients
 	 */
-	private ArrayList<Patient> findNumber(int phoneNumber) {
+	protected ArrayList<Patient> findNumber(int phoneNumber) {
 		ArrayList<Patient> matches = new ArrayList<Patient>();
-		for (Patient p : users) {
-			if (p.getPhoneNumber() == phoneNumber) {
-				matches.add(p);
+		for (Integer key : users.keySet()) {
+			if (users.get(key).getPhoneNumber() == phoneNumber) {
+				matches.add(users.get(key));
 			}
 		}
 		return matches;
@@ -94,9 +94,9 @@ public class PatientRegister extends Register<Patient> {
 	 */
 	private ArrayList<Patient> findAlive(boolean alive) {
 		ArrayList<Patient> matches = new ArrayList<Patient>();
-		for (Patient p : users) {
-			if (p.getAlive() == alive) {
-				matches.add(p);
+		for (Integer key : users.keySet()) {
+			if (users.get(key).getAlive() == alive) {
+				matches.add(users.get(key));
 			}
 		}
 		return matches;

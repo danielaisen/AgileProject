@@ -2,15 +2,18 @@ package Hospital;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Register<T extends HospitalUser> {
-	protected ArrayList<T> users = new ArrayList<T>();
-	protected static int serialnum = 0;
+	protected Map<Integer, T> users = new HashMap<Integer, T>();
+	
+	protected int serialnum = 0;
 	
 	public String toString() {
 		String a = "";
-		for (T u : users) {
-			a += u.toString() +"\n";
+		for (Integer u : users.keySet()) {
+			a += users.get(u).toString() +"\n";
 		}
 		return a;
 	}
@@ -18,16 +21,10 @@ public abstract class Register<T extends HospitalUser> {
 	/**
 	 * Searches for HospitalUsers with a matching serial number
 	 * @param serialnum
-	 * @return ArrayList of matching HospitalUsers
+	 * @return HashMap of matching HospitalUsers
 	 */
-	private ArrayList<T> findSerialnum(int serialnum) {
-		ArrayList<T> matches = new ArrayList<T>();
-		for (T p : users) {
-			if (p.getSerialnum() == serialnum) {
-				matches.add(p);
-			}
-		}
-		return matches;
+	protected T findSerialnum(int serialnum) {
+		return users.get(serialnum);
 	}
 	
 	/**
@@ -36,12 +33,8 @@ public abstract class Register<T extends HospitalUser> {
 	 * @return ArrayList of matching HospitalUsers
 	 */
 	public String[] searchSerialnum(int serialnum) {
-		ArrayList<T> matches = findSerialnum(serialnum);
-		String[] m = new String[matches.size()];
-		for (int i = 0; i < matches.size(); i++) {
-			m[i] = matches.get(i).toString();
-		}
-		return m;
+		String[] matches = new String[]{users.get(serialnum).toString()};
+		return matches;
 	}
 	
 	/**
@@ -52,10 +45,7 @@ public abstract class Register<T extends HospitalUser> {
 	public String[] searchEmail(String email) {
 		ArrayList<T> matches = findEmail(email);
 		String[] m = new String[matches.size()];
-		for (int i = 0; i < matches.size(); i++) {
-			m[i] = matches.get(i).toString();
-		}
-		return m;
+		return matches.toArray(m);
 	}
 	
 	/**
@@ -63,11 +53,11 @@ public abstract class Register<T extends HospitalUser> {
 	 * @param email
 	 * @return ArrayList of users
 	 */
-	private ArrayList<T> findEmail(String email) {
+	protected ArrayList<T> findEmail(String email) {
 		ArrayList<T> matches = new ArrayList<T>();
-		for (T p : users) {
-			if (p.getEmail() == email) {
-				matches.add(p);
+		for (Integer key : users.keySet()) {
+			if (users.get(key).getEmail() == email) {
+				matches.add(users.get(key));
 			}
 		}
 		return matches;
@@ -92,11 +82,11 @@ public abstract class Register<T extends HospitalUser> {
 	 * @param name
 	 * @return ArrayList of matching HospitalUsers
 	 */
-	private ArrayList<T> findName(String name) {
+	protected ArrayList<T> findName(String name) {
 		ArrayList<T> matches = new ArrayList<T>();
-		for (T p : users) {
-			if (p.getName() == name) {
-				matches.add(p);
+		for (Integer key : users.keySet()) {
+			if (users.get(key).getName() == name) {
+				matches.add(users.get(key));
 			}
 		}
 		return matches;
@@ -121,11 +111,11 @@ public abstract class Register<T extends HospitalUser> {
 	 * @param birthday
 	 * @return ArrayList of matching HospitalUsers
 	 */
-	private ArrayList<T> findBirthday(Date birthday) {
+	protected ArrayList<T> findBirthday(Date birthday) {
 		ArrayList<T> matches = new ArrayList<T>();
-		for (T p : users) {
-			if (p.getBirthday() == birthday) {
-				matches.add(p);
+		for (Integer key : users.keySet()) {
+			if (users.get(key).getBirthday() == birthday) {
+				matches.add(users.get(key));
 			}
 		}
 		return matches;
@@ -150,11 +140,11 @@ public abstract class Register<T extends HospitalUser> {
 	 * @param surname
 	 * @return ArrayList of matching HospitalUsers
 	 */
-	private ArrayList<T> findSurname(String surname) {
+	protected ArrayList<T> findSurname(String surname) {
 		ArrayList<T> matches = new ArrayList<T>();
-		for (T p : users) {
-			if (p.getSurname() == surname) {
-				matches.add(p);
+		for (Integer key : users.keySet()) {
+			if (users.get(key).getSurname() == surname) {
+				matches.add(users.get(key));
 			}
 		}
 		return matches;
@@ -179,11 +169,11 @@ public abstract class Register<T extends HospitalUser> {
 	 * @param role
 	 * @return ArrayList of matching HospitalUsers
 	 */
-	private ArrayList<T> findGender(String Gender) {
+	protected ArrayList<T> findGender(String Gender) {
 		ArrayList<T> matches = new ArrayList<T>();
-		for (T p : users) {
-			if (p.getGender() == Gender) {
-				matches.add(p);
+		for (Integer key : users.keySet()) {
+			if (users.get(key).getGender() == Gender) {
+				matches.add(users.get(key));
 			}
 		}
 		return matches;
