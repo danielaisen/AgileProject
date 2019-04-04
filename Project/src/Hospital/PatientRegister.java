@@ -101,4 +101,8 @@ public class PatientRegister extends Register<Patient> {
 		}
 		return matches;
 	}
+	
+	public static void main(String[] args) {
+		
+	}
 }
